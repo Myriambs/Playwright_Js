@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Testing With Style</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+  <style>
+    pre {
+      background-color: #282c34;
+      color: #61dafb;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+    }
+    .dark-mode pre {
+      background-color: #111;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1 id="siteTitle">Testing With Style</h1>
+      <ul>
+        <li><a href="#page1">Playwright Intro</a></li>
+        <li><a href="#page2">Setup</a></li>
+        <li><a href="#page3">Best Practices</a></li>
+        <li><a href="#page4">JS Power Boost</a></li>
+        <li><a href="#advanced">Advanced Tips</a></li>
+        <li><a href="#advanced2">More Clean Code</a></li>
+        <li><a href="#e2eFlow">E2E Flow Example</a></li>
+      </ul>
+     <div class="toggles">
+  <button id="modeToggle">🌙</button>
+  <button id="langToggle">EN/FR</button>
+  <a href="https://github.com/your-github-username" target="_blank" rel="noopener" class="github-link" aria-label="GitHub Profile">
+    <!-- GitHub SVG icon -->
+    <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2 .37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.53 7.53 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.001 8.001 0 0016 8c0-4.42-3.58-8-8-8z"/>
+    </svg>
+  </a>
+</div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="page1">
+      <h2 data-en="🧠 What is Playwright?" data-fr="🧠 Qu'est-ce que Playwright ?">🧠 What is Playwright?</h2>
+      <p id="playwrightIntro" data-en="Playwright is an open-source test automation library by Microsoft that enables reliable end-to-end testing for modern web apps." data-fr="Playwright est une bibliothèque open-source de test automatisé de Microsoft qui permet des tests E2E fiables pour les applications web modernes.">Playwright is an open-source test automation library by Microsoft that enables reliable end-to-end testing for modern web apps.</p>
+      <ul>
+        <li data-en="Supports Chromium, Firefox, WebKit" data-fr="Supporte Chromium, Firefox, WebKit">Supports Chromium, Firefox, WebKit</li>
+        <li data-en="Auto-waiting and smart locators" data-fr="Attente automatique et localisateurs intelligents">Auto-waiting and smart locators</li>
+        <li data-en="Parallel testing and test retries" data-fr="Tests parallèles et relances">Parallel testing and test retries</li>
+        <li data-en="Headless and UI mode" data-fr="Mode sans tête et avec interface">Headless and UI mode</li>
+        <li data-en="Faster and more modern than Selenium" data-fr="Plus rapide et plus moderne que Selenium">Faster and more modern than Selenium</li>
+      </ul>
+    </section>
+
+    <section id="page2">
+      <h2 data-en="⚙️ Setup & Configuration" data-fr="⚙️ Installation et Configuration">⚙️ Setup & Configuration</h2>
+      <pre><code>npm init playwright@latest
+npx playwright install</code></pre>
+      <p data-en="Use VS Code with Playwright Test extension for best experience. Configuration is done in playwright.config.js." data-fr="Utilisez VS Code avec l'extension Playwright Test pour une meilleure expérience. La configuration se fait dans playwright.config.js.">Use VS Code with Playwright Test extension for best experience. Configuration is done in <code>playwright.config.js</code>.</p>
+      <pre><code>module.exports = {
+  timeout: 30000,
+  use: {
+    headless: true,
+    viewport: { width: 1280, height: 720 },
+  },
+};</code></pre>
+    </section>
+
+    <section id="page3">
+      <h2 data-en="💻 Best Practices & POM" data-fr="💻 Bonnes Pratiques & POM">💻 Best Practices & POM</h2>
+      <p data-en="Use Page Object Model to separate concerns and avoid repetition." data-fr="Utilisez le modèle Page Object pour séparer les responsabilités et éviter les répétitions.">Use Page Object Model to separate concerns and avoid repetition.</p>
+      <pre><code>project/
+├── tests/
+│   └── login.spec.js
+├── pages/
+│   └── LoginPage.js</code></pre>
+      <p data-en="Use ES6 modules to import/export your page classes and utilities." data-fr="Utilisez les modules ES6 pour importer/exporter vos classes de pages et utilitaires.">Use ES6 modules to import/export your page classes and utilities.</p>
+      <pre><code>// LoginPage.js
+export class LoginPage {
+  constructor(page) {
+    this.page = page;
+    this.username = page.locator('#username');
+  }
+  async login(user, pass) {
+    await this.username.fill(user);
+    await this.page.locator('#password').fill(pass);
+    await this.page.click('#loginBtn');
+  }
+}</code></pre>
+    </section>
+
+    <section id="page4">
+      <h2 data-en="🧩 JavaScript Power Boost" data-fr="🧩 Boost JavaScript">🧩 JavaScript Power Boost</h2>
+      <ul>
+        <li data-en="Async/Await: Smooth test flow with try/catch blocks" data-fr="Async/Await : Flux de test fluide avec blocs try/catch">Async/Await: Smooth test flow with try/catch blocks</li>
+        <li data-en="Array.map/filter: Clean up locators and test data" data-fr="Array.map/filter : Nettoyez les localisateurs et les données de test">Array.map/filter: Clean up locators and test data</li>
+        <li data-en="Object destructuring: Makes your code clean and readable" data-fr="Déstructuration d'objet : Rend votre code propre et lisible">Object destructuring: Makes your code clean and readable</li>
+        <li data-en="forEach loops: Run multiple test scenarios with ease" data-fr="Boucles forEach : Exécutez plusieurs scénarios de test facilement">forEach loops: Run multiple test scenarios with ease</li>
+      </ul>
+      <pre><code>const users = ["admin", "user", "guest"];
+users.forEach(async (u) => {
+  await loginPage.login(u, 'password123');
+});</code></pre>
+    </section>
+
+    <section id="advanced">
+      <h2 data-en="🚀 Advanced Playwright Tips & Clean Code" data-fr="🚀 Astuces avancées Playwright & Code Propre">🚀 Advanced Playwright Tips & Clean Code</h2>
+
+      <h3>✅ Extract selectors into a separate file</h3>
+      <pre><code>// selectors.js
+module.exports = {
+  newTodo: 'input[placeholder="What needs to be done?"]',
+  todoTitle: '[data-testid="todo-title"]',
+  todoItem: '[data-testid="todo-item"]',
+  todoCount: '[data-testid="todo-count"]',
+  toggleAll: 'label[for="toggle-all"]',
+};
+      </code></pre>
+      <p>Modularizes locators for easier maintenance and cleaner code.</p>
+
+      <h3>✅ Create a reusable TodoAppPage class</h3>
+      <pre><code>class TodoAppPage {
+  constructor(page) {
+    this.page = page;
+    this.newTodo = page.getByPlaceholder('What needs to be done?');
+    this.todoItems = page.getByTestId('todo-item');
+    this.count = page.getByTestId('todo-count');
+  }
+
+  async addTodo(item) {
+    await this.newTodo.fill(item);
+    await this.newTodo.press('Enter');
+  }
+
+  async addTodos(items) {
+    for (const item of items) {
+      await this.addTodo(item);
+    }
+  }
+
+  async toggleTodo(index) {
+    await this.todoItems.nth(index).getByRole('checkbox').check();
+  }
+}
+      </code></pre>
+      <p>Encapsulates UI interactions making tests cleaner, more maintainable, and scalable.</p>
+
+      <h3>✅ Use test.step() for detailed reporting</h3>
+      <pre><code>await test.step('Add 3 default todos', async () => {
+  await createDefaultTodos(page);
+});</code></pre>
+      <p>Improves debug-ability by isolating test steps for clear reporting.</p>
+
+      <h3>✅ Improve assertion messages</h3>
+      <pre><code>await expect(todoCount, 'Expect todo count to be "3 items left"').toHaveText('3 items left');</code></pre>
+      <p>Better error messages help when debugging test failures.</p>
+
+      <h3>✅ Snapshot testing for layout regressions</h3>
+      <pre><code>await expect(page).toHaveScreenshot('todo-page.png');</code></pre>
+      <p>Automatically detects UI regressions by comparing screenshots.</p>
+
+      <h3>✅ Upgrade localStorage checks</h3>
+      <pre><code>async function getTodosFromLocalStorage(page) {
+  return await page.evaluate(() => JSON.parse(localStorage['react-todos']));
+}</code></pre>
+      <p>Dynamic checks to ensure UI matches persisted data.</p>
+
+      <h3>Bonus Tips</h3>
+      <ul>
+        <li>Use TypeScript for autocomplete and safer code.</li>
+        <li>Configure playwright.config.ts for centralized settings.</li>
+        <li>Use test.use() for customized context (viewport, storage, etc.).</li>
+        <li>Group tests by feature files for scalability.</li>
+        <li>Add tags to tests to filter CI runs.</li>
+      </ul>
+    </section>
+
+    <section id="advanced2">
+      <h2 data-en="🔧 More Clean Code & Structure" data-fr="🔧 Plus de Code Propre & Structure">🔧 More Clean Code & Structure</h2>
+
+      <h3>✅ Split tests into helper functions</h3>
+      <pre><code>async function login(page, username, password) {
+  await page.getByPlaceholder('E-Mail').fill(username);
+  await page.getByPlaceholder('Password').fill(password);
+  await page.getByRole('button', { name: 'Login' }).click();
+}</code></pre>
+      <p>Modular steps improve reusability and readability.</p>
+
+      <h3>✅ Use test.describe() blocks</h3>
+      <pre><code>test.describe('Checkout Flow', () => {
+  test('should complete order with discount', async ({ page }) => {
+    ...
+  });
+});</code></pre>
+      <p>Groups tests logically for better organization.</p>
+
+      <h3>✅ Use test.step() for traceability</h3>
+      <pre><code>await test.step('Login as admin', async () => {
+  await login(page, 'admin', 'Admin123');
+});</code></pre>
+      <p>Improves detailed reporting per test step.</p>
+
+      <h3>✅ Extract config/data files</h3>
+      <p>Keep test data separate for easy updates.</p>
+
+      <h3>✅ Refactor complex discount code logic</h3>
+      <pre><code>async function applyDiscountFromIframe(page) {
+  const frame = await page.frameLocator('iframe').frame();
+  const discountCode = await frame.locator('[data-qa="discount-code"]').innerText();
+
+  const input = page.getByPlaceholder('Discount code');
+  for (const char of discountCode) {
+    await input.type(char);
+    await page.waitForTimeout(1000);
+  }
+
+  await page.locator('[data-qa="submit-discount-button"]').click();
+}</code></pre>
+      <p>Clean, maintainable handling of iframe interactions.</p>
+
+      <h3>✅ Add robust error handling</h3>
+      <pre><code>try {
+  await applyDiscountFromIframe(page);
+} catch (error) {
+  console.error('Failed to apply discount code:', error.message);
+}</code></pre>
+      <p>Keeps tests stable by catching unexpected failures.</p>
+
+      <h3>✅ Assert after important steps</h3>
+      <pre><code>await expect(page).toHaveURL(/.*thank-you/);
+await expect(page.locator('text=Order confirmed')).toBeVisible();</code></pre>
+      <p>Validates crucial UI states to avoid silent failures.</p>
+
+      <h3>✅ Avoid unnecessary console logs</h3>
+      <pre><code>if (process.env.DEBUG) {
+  console.log('Logged in');
+}</code></pre>
+      <p>Keeps test output clean in production.</p>
+
+      <h3>✅ Optional: TypeScript for safety</h3>
+      <p>Get autocomplete and early error detection.</p>
+    </section>
+
+    <section id="e2eFlow">
+      <h2 data-en="🎯 Example: Complete E2E Purchase Flow" data-fr="🎯 Exemple : Flux d'achat complet E2E">🎯 Example: Complete E2E Purchase Flow</h2>
+
+      <article>
+        <h3>Step 1: Go to the product page</h3>
+        <pre><code>await page.goto(URL_PAGE, { waitUntil: 'networkidle' });</code></pre>
+        <p>Navigates to the store homepage at <code>http://localhost:2221</code>.</p>
+
+        <h3>Step 2: Check page title</h3>
+        <pre><code>const title = await page.title();
+expect(title).toContain(Title_Page);</code></pre>
+        <p>Verifies the page title contains "Art Shopping Store".</p>
+
+        <h3>Step 3: Add 3 products to the basket</h3>
+        <pre><code>const productIndices = [0, 1, 2];
+for (const index of productIndices) {
+  await addProductToBasket(page, index);
+}</code></pre>
+        <p>Adds products at index 0, 1, 2 to the cart using a reusable helper.</p>
+
+        <h3>Step 4: Navigate to basket page</h3>
+        <pre><code>await navigation(page);
+expect(page.url()).toContain('/basket');</code></pre>
+        <p>Custom <code>navigation()</code> function moves to the basket page, URL should contain <code>/basket</code>.</p>
+
+        <h3>Step 5: Login Flow</h3>
+        <pre><code>await page.getByRole('button', { name: 'Continue to Checkout' }).click();
+await page.getByPlaceholder('E-Mail').fill('admin');
+await page.getByPlaceholder('Password').fill('Admin123');
+await page.getByRole('button', { name: 'Login' }).click();</code></pre>
+        <p>Fills login form. Fixes username case and retries if needed. Waits for delivery details page.</p>
+
+        <h3>Step 6: Fill Delivery Info</h3>
+        <pre><code>await page.getByPlaceholder('First name').fill('admin');
+await page.getByPlaceholder('Last name').fill('nben salah ');
+await page.getByRole('combobox').selectOption('Tunisia');
+await page.getByRole('button', { name: 'Continue to payment' }).click();</code></pre>
+        <p>Fills the delivery form fields like name, address, country, and continues.</p>
+
+        <h3>Step 7: Discount Code Flow</h3>
+        <pre><code>const frame = await page.locator('iframe').contentFrame();
+const discountText = await frame.locator('[data-qa="discount-code"]').innerText();
+
+const input = page.getByPlaceholder('Discount code');
+for (const char of discountText) {
+  await input.type(char);
+  await page.waitForTimeout(1000);
+}
+
+await page.locator('[data-qa="submit-discount-button"]').click();</code></pre>
+        <p>Gets discount code from iframe, types it char-by-char, and submits discount.</p>
+
+        <h3>Step 8: Assert Discount Works</h3>
+        <pre><code>const totalNumber = await page.locator('[data-qa="total-value"]').innerText();
+const discountNumber = await page.locator('[data-qa="total-with-discount-value"]').innerText();
+// Assert discount price <= original price</code></pre>
+        <p>Checks the new price with discount is less than or equal to original price.</p>
+
+        <h3>Step 9: Fill Credit Card Info</h3>
+        <pre><code>const credential = {
+  nameOwner:"meriam ben salah",
+  cardNumber:'12345678912345678',
+  validUtil:"12/15",
+  cvc:'1234'
+};
+// fill credit card form fields...
+
+await page.getByRole('button', { name: 'Pay' }).click();</code></pre>
+        <p>Fills payment form with dummy values and clicks Pay.</p>
+
+        <h3>Step 10: Final page</h3>
+        <pre><code>await page.goto('http://localhost:2221/thank-you');</code></pre>
+        <p>Goes to thank-you page (indicates success).</p>
+
+        <h3>Debug Pause</h3>
+        <pre><code>await page.pause();</code></pre>
+        <p>Pauses the browser so you can debug manually (remove in prod).</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with 💻 & ☕ by Mayna</p>
+  </footer>
+</body>
+</html>
