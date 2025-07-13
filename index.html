@@ -5,147 +5,314 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Testing With Style</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    pre {
-      background-color: #282c34;
-      color: #61dafb;
-      padding: 10px;
-      border-radius: 8px;
-      overflow-x: auto;
-      font-family: monospace;
-      font-size: 0.9rem;
-      margin-top: 10px;
-      transition: background-color 0.3s;
-    }
-    .dark-mode pre {
-      background-color: #111;
-    }
-  </style>
-</head>
+  </head>
 <body>
   <header>
   <nav>
     <h1 id="siteTitle">Testing With Style</h1>
 
-    <!-- Hamburger Button -->
     <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
       ☰
     </button>
 
-    <!-- Navigation Links -->
     <ul class="nav-links" id="nav-links">
-      <li><a href="#page1">Playwright Intro</a></li>
-      <li><a href="#page2">Setup</a></li>
-      <li><a href="#page3">Best Practices</a></li>
-      <li><a href="#page4">JS Power Boost</a></li>
-      <li><a href="#advanced">Advanced Tips</a></li>
-      <li><a href="#advanced2">More Clean Code</a></li>
-      <li><a href="#e2eFlow">E2E Flow Example</a></li>
+      <li><a href="#introduction" data-en="Playwright Intro" data-fr="Intro Playwright">Playwright Intro</a></li>
+      <li><a href="#why-playwright" data-en="Why Playwright?" data-fr="Pourquoi Playwright ?">Why Playwright?</a></li>
+      <li><a href="#getting-started" data-en="Getting Started" data-fr="Démarrer">Getting Started</a></li>
+      <li><a href="#best-practices" data-en="Best Practices & POM" data-fr="Bonnes Pratiques & POM">Best Practices & POM</a></li>
+      <li><a href="#js-power-boost" data-en="JS Power Boost" data-fr="Boost JS">JS Power Boost</a></li>
+      <li><a href="#advanced-tips" data-en="Advanced Playwright Tips" data-fr="Astuces Avancées Playwright">Advanced Playwright Tips</a></li>
+      <li><a href="#e2e-flow" data-en="E2E Flow Example" data-fr="Exemple de Flux E2E">E2E Flow Example</a></li>
+      <li><a href="#troubleshooting" data-en="Troubleshooting" data-fr="Dépannage">Troubleshooting</a></li>
+      <li><a href="#ci-cd" data-en="CI/CD Integration" data-fr="Intégration CI/CD">CI/CD Integration</a></li>
+      <li><a href="#vscode-features" data-en="VS Code Features" data-fr="Fonctionnalités VS Code">VS Code Features</a></li>
     </ul>
 
-    <!-- Dark Mode Toggle -->
-  <div class="toggles">
-  <button id="modeToggle">🌙</button>
-  <button id="langToggle">🇫🇷</button>
-</div>
-
+    <div class="toggles">
+        <button id="modeToggle">🌙</button>
+        <button id="langToggle">🇫🇷</button>
+    </div>
   </nav>
 </header>
 
-
-  <!-- Main content sections stay unchanged -->
-
   <main>
-    <section id="page1">
-      <h2 data-en="🧠 What is Playwright?" data-fr="🧠 Qu'est-ce que Playwright ?">🧠 What is Playwright?</h2>
-      <p id="playwrightIntro" data-en="Playwright is an open-source test automation library by Microsoft that enables reliable end-to-end testing for modern web apps." data-fr="Playwright est une bibliothèque open-source de test automatisé de Microsoft qui permet des tests E2E fiables pour les applications web modernes.">Playwright is an open-source test automation library by Microsoft that enables reliable end-to-end testing for modern web apps.</p>
+    <section id="introduction">
+      <h2 data-en="🚀 Level Up Your Testing with Playwright & JavaScript!" data-fr="🚀 Améliorez vos tests avec Playwright & JavaScript !">🚀 Level Up Your Testing with Playwright & JavaScript!</h2>
+      <p data-en="Are you ready to write **robust, fast, and reliable** end-to-end tests for your web applications? Look no further than **Playwright**, a powerful Node.js library that makes browser automation a breeze. This guide is crafted for **developers and QA engineers** eager to master modern E2E testing. We'll walk you through setting up Playwright with JavaScript, exploring essential best practices, and equipping you with advanced tips to write clean, maintainable, and highly effective tests." data-fr="Prêt à écrire des tests de bout en bout **robustes, rapides et fiables** pour vos applications web ? Ne cherchez pas plus loin que **Playwright**, une puissante bibliothèque Node.js qui facilite l'automatisation des navigateurs. Ce guide est conçu pour les **développeurs et ingénieurs QA** désireux de maîtriser les tests E2E modernes. Nous vous guiderons à travers la configuration de Playwright avec JavaScript, l'exploration des meilleures pratiques essentielles et vous fournirons des astuces avancées pour écrire des tests propres, maintenables et très efficaces.">
+        Are you ready to write **robust, fast, and reliable** end-to-end tests for your web applications? Look no further than **Playwright**, a powerful Node.js library that makes browser automation a breeze. This guide is crafted for **developers and QA engineers** eager to master modern E2E testing. We'll walk you through setting up Playwright with JavaScript, exploring essential best practices, and equipping you with advanced tips to write clean, maintainable, and highly effective tests.
+      </p>
+    </section>
+
+    ---
+
+    <section id="why-playwright">
+      <h2 data-en="💡 Why Choose Playwright?" data-fr="💡 Pourquoi choisir Playwright ?">💡 Why Choose Playwright?</h2>
+      <p data-en="Playwright stands out as a top choice for automated web testing due to its exceptional features:" data-fr="Playwright se distingue comme un excellent choix pour les tests web automatisés grâce à ses fonctionnalités exceptionnelles :">
+        Playwright stands out as a top choice for automated web testing due to its exceptional features:
+      </p>
       <ul>
-        <li data-en="Supports Chromium, Firefox, WebKit" data-fr="Supporte Chromium, Firefox, WebKit">Supports Chromium, Firefox, WebKit</li>
-        <li data-en="Auto-waiting and smart locators" data-fr="Attente automatique et localisateurs intelligents">Auto-waiting and smart locators</li>
-        <li data-en="Parallel testing and test retries" data-fr="Tests parallèles et relances">Parallel testing and test retries</li>
-        <li data-en="Headless and UI mode" data-fr="Mode sans tête et avec interface">Headless and UI mode</li>
-        <li data-en="Faster and more modern than Selenium" data-fr="Plus rapide et plus moderne que Selenium">Faster and more modern than Selenium</li>
+        <li data-en="**Unparalleled Reliability:** Playwright's **auto-waiting capabilities** intelligently wait for elements to be ready, significantly reducing test flakiness often seen in other frameworks." data-fr="**Fiabilité inégalée :** Les **capacités d'attente automatique** de Playwright attendent intelligemment que les éléments soient prêts, réduisant considérablement la fragilité des tests souvent observée dans d'autres frameworks.">
+          **Unparalleled Reliability:** Playwright's **auto-waiting capabilities** intelligently wait for elements to be ready, significantly reducing test flakiness often in other frameworks.
+        </li>
+        <li data-en="**Blazing Fast Execution:** It takes advantage of modern browser capabilities for **fast and efficient test execution**." data-fr="**Exécution ultra-rapide :** Il tire parti des capacités des navigateurs modernes pour une **exécution de tests rapide et efficace**.">
+          **Blazing Fast Execution:** It takes advantage of modern browser capabilities for **fast and efficient test execution**.
+        </li>
+        <li data-en="**Comprehensive Browser Support:** Test across all modern rendering engines: **Chromium** (Google Chrome, Microsoft Edge), **Firefox**, and **WebKit** (Safari) with a single API." data-fr="**Prise en charge complète des navigateurs :** Testez sur tous les moteurs de rendu modernes : **Chromium** (Google Chrome, Microsoft Edge), **Firefox** et **WebKit** (Safari) avec une seule API.">
+          **Comprehensive Browser Support:** Test across all modern rendering engines: **Chromium** (Google Chrome, Microsoft Edge), **Firefox** and **WebKit** (Safari) with a single API.
+        </li>
+        <li data-en="**Powerful Debugging Tools:** Leverage features like **Test Tracing** (visualizing test execution, including snapshots, DOM snapshots, and action logs), **Codegen** (generating tests by recording user actions), and **Playwright Inspector** for easy debugging." data-fr="**Outils de débogage puissants :** Tirez parti de fonctionnalités telles que le **Test Tracing** (visualisation de l'exécution des tests, y compris les captures d'écran, les instantanés DOM et les journaux d'actions), **Codegen** (génération de tests en enregistrant les actions de l'utilisateur) et l'**Inspecteur Playwright** pour un débogage facile.">
+          **Powerful Debugging Tools:** Leverage features like **Test Tracing** (visualizing test execution, including snapshots, DOM snapshots, and action logs), **Codegen** (generating tests by recording user actions), and **Playwright Inspector** for easy debugging.
+        </li>
+        <li data-en="**Rich API Features:** Go beyond UI testing with capabilities for **API testing, network mocking, authenticated sessions, component testing**, and more." data-fr="**Riches fonctionnalités d'API :** Allez au-delà des tests d'interface utilisateur avec des capacités de **tests d'API, de simulation de réseau, de sessions authentifiées, de tests de composants**, et bien plus encore.">
+          **Rich API Features:** Go beyond UI testing with capabilities for **API testing, network mocking, authenticated sessions, component testing**, and more.
+        </li>
       </ul>
     </section>
 
-    <section id="page2">
-      <h2 data-en="⚙️ Setup & Configuration" data-fr="⚙️ Installation et Configuration">⚙️ Setup & Configuration</h2>
+    ---
+
+    <section id="getting-started">
+      <h2 data-en="🚀 Your First Playwright Test: Getting Started" data-fr="🚀 Votre premier test Playwright : Premiers pas">🚀 Your First Playwright Test: Getting Started</h2>
+      <p data-en="Let's get Playwright up and running! Follow these simple steps to set up your environment and write your very first test." data-fr="Mettons Playwright en marche ! Suivez ces étapes simples pour configurer votre environnement et écrire votre tout premier test.">
+        Let's get Playwright up and running! Follow these simple steps to set up your environment and write your very first test.
+      </p>
+
+      <h3 data-en="Step 1: Setup & Installation" data-fr="Étape 1 : Installation et Configuration">Step 1: Setup & Installation</h3>
+      <p data-en="Initialize Playwright in your project and install the necessary browser binaries:" data-fr="Initialisez Playwright dans votre projet et installez les binaires de navigateur nécessaires :">
+        Initialize Playwright in your project and install the necessary browser binaries:
+      </p>
       <pre><code>npm init playwright@latest
 npx playwright install</code></pre>
-      <p data-en="Use VS Code with Playwright Test extension for best experience. Configuration is done in playwright.config.js." data-fr="Utilisez VS Code avec l'extension Playwright Test pour une meilleure expérience. La configuration se fait dans playwright.config.js.">Use VS Code with Playwright Test extension for best experience. Configuration is done in <code>playwright.config.js</code>.</p>
-      <pre><code>module.exports = {
+      <p data-en="**Pro Tip:** For the best development experience, use VS Code with the official **Playwright Test extension**. Your main configuration is handled in `playwright.config.js` (or `playwright.config.ts` if using TypeScript)." data-fr="**Conseil de Pro :** Pour la meilleure expérience de développement, utilisez VS Code avec l'**extension Playwright Test** officielle. Votre configuration principale est gérée dans `playwright.config.js` (ou `playwright.config.ts` si vous utilisez TypeScript).">
+        **Pro Tip:** For the best development experience, use VS Code with the official **Playwright Test extension**. Your main configuration is handled in `playwright.config.js` (or `playwright.config.ts` if using TypeScript).
+      </p>
+      <pre><code>// playwright.config.js
+module.exports = {
+  // Sets the default timeout for each test to 30 seconds
   timeout: 30000,
   use: {
+    // Run tests in headless mode (no browser UI visible)
     headless: true,
+    // Define a default viewport size for your tests
     viewport: { width: 1280, height: 720 },
+    // You can also specify other options here like `baseURL`, `trace: 'on-first-retry'`, etc.
   },
+  // You can add projects for different browsers, devices, or environments
+  // projects: [
+  //   {
+  //     name: 'chromium',
+  //     use: { ...devices['Desktop Chrome'] },
+  //   },
+  //   {
+  //     name: 'firefox',
+  //     use: { ...devices['Desktop Firefox'] },
+  //   },
+  // ],
 };</code></pre>
+      <p data-en="The `timeout` property sets the maximum time a test can run. `headless: true` means the browser runs in the background, which is faster for CI/CD. `viewport` defines the screen dimensions for consistency across test runs." data-fr="La propriété `timeout` définit le temps maximum d'exécution d'un test. `headless: true` signifie que le navigateur s'exécute en arrière-plan, ce qui est plus rapide pour le CI/CD. `viewport` définit les dimensions de l'écran pour une cohérence entre les exécutions de tests.">
+        The `timeout` property sets the maximum time a test can run. `headless: true` means the browser runs in the background, which is faster for CI/CD. `viewport` defines the screen dimensions for consistency across test runs.
+      </p>
+
+      <h3 data-en="Step 2: Create Your First Test File" data-fr="Étape 2 : Créez votre premier fichier de test">Step 2: Create Your First Test File</h3>
+      <p data-en="Create a new file, for example, `tests/example.spec.js`:" data-fr="Créez un nouveau fichier, par exemple, `tests/example.spec.js` :">
+        Create a new file, for example, `tests/example.spec.js`:
+      </p>
+      <pre><code>// tests/example.spec.js
+import { test, expect } from '@playwright/test';
+
+test('has title', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  // Expect a title "to contain" a substring.
+  await expect(page).toHaveTitle(/Playwright/);
+});
+
+test('get started link', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  // Click the get started link.
+  await page.getByRole('link', { name: 'Get started' }).click();
+
+  // Expects the URL to contain a "docs" substring.
+  await expect(page).toHaveURL(/.*docs/);
+});
+      </code></pre>
+
+      <h3 data-en="Step 3: Run Your Test!" data-fr="Étape 3 : Exécutez votre test !">Step 3: Run Your Test!</h3>
+      <p data-en="Execute your test from the command line:" data-fr="Exécutez votre test depuis la ligne de commande :">
+        Execute your test from the command line:
+      </p>
+      <pre><code>npx playwright test</code></pre>
+      <p data-en="Congratulations! You've just run your first Playwright test!" data-fr="Félicitations ! Vous venez d'exécuter votre premier test Playwright !">
+        Congratulations! You've just run your first Playwright test!
+      </p>
     </section>
 
-    <section id="page3">
-      <h2 data-en="💻 Best Practices & POM" data-fr="💻 Bonnes Pratiques & POM">💻 Best Practices & POM</h2>
-      <p data-en="Use Page Object Model to separate concerns and avoid repetition." data-fr="Utilisez le modèle Page Object pour séparer les responsabilités et éviter les répétitions.">Use Page Object Model to separate concerns and avoid repetition.</p>
+    ---
+
+    <section id="best-practices">
+      <h2 data-en="💻 Best Practices & Page Object Model (POM)" data-fr="💻 Bonnes Pratiques & Modèle Page Object (POM)">💻 Best Practices & Page Object Model (POM)</h2>
+      <p data-en="To keep your tests **maintainable, readable, and scalable**, adopt robust best practices. The **Page Object Model (POM)** is paramount for separating your test logic from your UI interactions, preventing repetition and making updates easier." data-fr="Pour que vos tests soient **maintenables, lisibles et évolutifs**, adoptez des pratiques robustes. Le **modèle Page Object (POM)** est primordial pour séparer votre logique de test de vos interactions d'interface utilisateur, évitant les répétitions et facilitant les mises à jour.">
+        To keep your tests **maintainable, readable, and scalable**, adopt robust best practices. The **Page Object Model (POM)** is paramount for separating your test logic from your UI interactions, preventing repetition and making updates easier.
+      </p>
       <pre><code>project/
-├── tests/
+├── tests/              # Your test files
 │   └── login.spec.js
-├── pages/
-│   └── LoginPage.js</code></pre>
-      <p data-en="Use ES6 modules to import/export your page classes and utilities." data-fr="Utilisez les modules ES6 pour importer/exporter vos classes de pages et utilitaires.">Use ES6 modules to import/export your page classes and utilities.</p>
-      <pre><code>// LoginPage.js
+└── pages/              # Your Page Object classes
+    └── LoginPage.js</code></pre>
+      <p data-en="Use **ES6 modules** (`import`/`export`) for your page classes and utilities. They provide better modularity, static analysis, and are the standard for modern JavaScript development." data-fr="Utilisez les **modules ES6** (`import`/`export`) pour vos classes de pages et vos utilitaires. Ils offrent une meilleure modularité, une analyse statique et sont la norme pour le développement JavaScript moderne.">
+        Use **ES6 modules** (`import`/`export`) for your page classes and utilities. They provide better modularity, static analysis, and are the standard for modern JavaScript development.
+      </p>
+      <pre><code>// pages/LoginPage.js
 export class LoginPage {
   constructor(page) {
     this.page = page;
-    this.username = page.locator('#username');
+    // Define locators for elements on the login page
+    this.usernameInput = page.locator('#username');
+    this.passwordInput = page.locator('#password');
+    this.loginButton = page.locator('#loginBtn');
   }
+
+  /**
+   * Performs a login action.
+   * @param {string} user - The username.
+   * @param {string} pass - The password.
+   */
   async login(user, pass) {
-    await this.username.fill(user);
-    await this.page.locator('#password').fill(pass);
-    await this.page.click('#loginBtn');
+    await this.usernameInput.fill(user);
+    await this.passwordInput.fill(pass);
+    await this.loginButton.click();
+  }
+
+  // You can add more methods for interactions specific to the login page
+  async navigateToLoginPage() {
+    await this.page.goto('/login'); // Assuming a base URL is configured
   }
 }</code></pre>
+      <p data-en="By centralizing locators and actions within a `LoginPage` class, you avoid scattering selectors throughout your tests. If a UI element changes, you only need to update it in one place!" data-fr="En centralisant les localisateurs et les actions dans une classe `LoginPage`, vous évitez de disperser les sélecteurs dans vos tests. Si un élément d'interface utilisateur change, vous n'avez qu'à le mettre à jour à un seul endroit !">
+        By centralizing locators and actions within a `LoginPage` class, you avoid scattering selectors throughout your tests. If a UI element changes, you only need to update it in one place!
+      </p>
+      <h3 data-en="Page Object Model (POM) Architecture" data-fr="Architecture du modèle Page Object (POM)">Page Object Model (POM) Architecture</h3>
+      <p data-en="The Page Object Model creates a layer of abstraction between your test code and the web page's UI elements. Test scripts interact with page objects (e.g., `LoginPage`), which encapsulate locators and methods. This makes tests more readable, reusable, and resilient to UI changes. Think of it as: **Test Script** -> **Page Object** -> **Web Page Elements**." data-fr="Le modèle Page Object crée une couche d'abstraction entre votre code de test et les éléments d'interface utilisateur de la page web. Les scripts de test interagissent avec des objets de page (par exemple, `LoginPage`), qui encapsulent les localisateurs et les méthodes. Cela rend les tests plus lisibles, réutilisables et résistants aux changements d'interface utilisateur. Pensez-y comme ceci : **Script de Test** -> **Objet de Page** -> **Éléments de Page Web**.">
+          The Page Object Model creates a layer of abstraction between your test code and the web page's UI elements. Test scripts interact with page objects (e.g., `LoginPage`), which encapsulate locators and methods. This makes tests more readable, reusable, and resilient to UI changes. Think of it as: **Test Script** -> **Page Object** -> **Web Page Elements**.
+      </p>
     </section>
 
-    <section id="page4">
-      <h2 data-en="🧩 JavaScript Power Boost" data-fr="🧩 Boost JavaScript">🧩 JavaScript Power Boost</h2>
+    ---
+
+    <section id="js-power-boost">
+      <h2 data-en="🧩 JavaScript Power Boost for Tests" data-fr="🧩 Boost JavaScript pour les Tests">🧩 JavaScript Power Boost for Tests</h2>
+      <p data-en="Harnessing modern JavaScript features can significantly improve the readability, maintainability, and efficiency of your Playwright tests." data-fr="L'exploitation des fonctionnalités JavaScript modernes peut améliorer considérablement la lisibilité, la maintenabilité et l'efficacité de vos tests Playwright.">
+        Harnessing modern JavaScript features can significantly improve the readability, maintainability, and efficiency of your Playwright tests.
+      </p>
       <ul>
-        <li data-en="Async/Await: Smooth test flow with try/catch blocks" data-fr="Async/Await : Flux de test fluide avec blocs try/catch">Async/Await: Smooth test flow with try/catch blocks</li>
-        <li data-en="Array.map/filter: Clean up locators and test data" data-fr="Array.map/filter : Nettoyez les localisateurs et les données de test">Array.map/filter: Clean up locators and test data</li>
-        <li data-en="Object destructuring: Makes your code clean and readable" data-fr="Déstructuration d'objet : Rend votre code propre et lisible">Object destructuring: Makes your code clean and readable</li>
-        <li data-en="forEach loops: Run multiple test scenarios with ease" data-fr="Boucles forEach : Exécutez plusieurs scénarios de test facilement">forEach loops: Run multiple test scenarios with ease</li>
-      </ul>
-      <pre><code>const users = ["admin", "user", "guest"];
-users.forEach(async (u) => {
-  await loginPage.login(u, 'password123');
+        <li data-en="**Async/Await:** Essential for handling asynchronous operations in Playwright (like `await page.click()`). Use `try/catch` blocks for robust error handling in critical test flows." data-fr="**Async/Await :** Essentiel pour gérer les opérations asynchrones dans Playwright (comme `await page.click()`). Utilisez des blocs `try/catch` pour une gestion robuste des erreurs dans les flux de test critiques.">
+          **Async/Await:** Essential for handling asynchronous operations in Playwright (like `await page.click()`). Use `try/catch` blocks for robust error handling in critical test flows.
+          <pre><code>async function performAction() {
+  try {
+    await page.click('#someButton');
+    console.log('Button clicked successfully!');
+  } catch (error) {
+    console.error('Failed to click button:', error.message);
+    // Optionally, assert that an error occurred or take a screenshot
+  }
+}</code></pre>
+        </li>
+        <li data-en="**Array.map/filter:** Great for cleaning up lists of locators, test data, or transforming elements." data-fr="**Array.map/filter :** Idéal pour nettoyer les listes de localisateurs, les données de test ou transformer les éléments.">
+          **Array.map/filter:** Great for cleaning up lists of locators, test data, or transforming elements.
+          <pre><code>// Example: Get text content of all todo items
+const todoTexts = await page.locator('.todo-item').allTextContents();
+// Now you can filter or map these texts for assertions or further processing
+const completedTodos = todoTexts.filter(text => text.includes('[COMPLETED]'));</code></pre>
+        </li>
+        <li data-en="**Object Destructuring:** Makes your code cleaner and more readable, especially when dealing with objects like the `page` fixture in Playwright tests." data-fr="**Déstructuration d'objet :** Rend votre code plus propre et plus lisible, en particulier lorsque vous traitez des objets comme la fixture `page` dans les tests.">
+          **Object Destructuring:** Makes your code cleaner and more readable, especially when dealing with objects like the `page` fixture in Playwright tests.
+          <pre><code>// Instead of:
+// test('my test', async (testInfo) => {
+//   const page = testInfo.page;
+//   await page.goto('/');
+// });
+
+// Use destructuring for clarity:
+test('my test', async ({ page, browserName }) => {
+  await page.goto('/');
+  console.log(`Running test on ${browserName}`);
 });</code></pre>
+        </li>
+        <li data-en="**forEach loops:** Ideal for iterating over arrays to run multiple test scenarios with ease, like testing login with different user roles." data-fr="**Boucles forEach :** Idéal pour itérer sur des tableaux afin d'exécuter facilement plusieurs scénarios de test, comme tester la connexion avec différents rôles d'utilisateur.">
+          **forEach loops:** Ideal for iterating over arrays to run multiple test scenarios with ease, like testing login with different user roles.
+          <pre><code>const users = ["admin", "user", "guest"];
+// This approach is useful for sequential actions within a single test function
+for (const u of users) { // Using for...of for better async handling in loops
+  await loginPage.login(u, 'password123');
+  // Add assertions or further actions for each user
+  await page.goBack(); // Example: go back to login page
+}
+
+// For truly independent test scenarios, consider `test.each` (Playwright's data-driven testing)
+// test.each(users)('login as %s', async (user, { page }) => {
+//   await loginPage.login(user, 'password123');
+//   // Assertions specific to this user
+// });
+</code></pre>
+        </li>
+      </ul>
     </section>
 
-    <section id="advanced">
-      <h2 data-en="🚀 Advanced Playwright Tips & Clean Code" data-fr="🚀 Astuces avancées Playwright & Code Propre">🚀 Advanced Playwright Tips & Clean Code</h2>
+    ---
 
-      <h3>✅ Extract selectors into a separate file</h3>
-      <pre><code>// selectors.js
+    <section id="advanced-tips">
+      <h2 data-en="🚀 Advanced Playwright Tips & Clean Code" data-fr="🚀 Astuces avancées Playwright & Code Propre">🚀 Advanced Playwright Tips & Clean Code</h2>
+      <p data-en="Elevate your Playwright test suite with these advanced techniques and clean code practices for better maintainability, readability, and debugging." data-fr="Élevez votre suite de tests Playwright avec ces techniques avancées et pratiques de code propre pour une meilleure maintenabilité, lisibilité et débogage.">
+        Elevate your Playwright test suite with these advanced techniques and clean code practices for better maintainability, readability, and debugging.
+      </p>
+
+      <h3 data-en="✅ Modularize Selectors" data-fr="✅ Modulariser les sélecteurs">✅ Modularize Selectors</h3>
+      <p data-en="**Extract selectors into a separate file** to centralize your UI element definitions. This makes locators easier to maintain and keeps your test files cleaner." data-fr="**Extrayez les sélecteurs dans un fichier séparé** pour centraliser vos définitions d'éléments d'interface utilisateur. Cela facilite la maintenance des localisateurs et garde vos fichiers de test plus propres.">
+        **Extract selectors into a separate file** to centralize your UI element definitions. This makes locators easier to maintain and keeps your test files cleaner.
+      </p>
+      <pre><code>// selectors/todoPageSelectors.js
 module.exports = {
-  newTodo: 'input[placeholder="What needs to be done?"]',
-  todoTitle: '[data-testid="todo-title"]',
-  todoItem: '[data-testid="todo-item"]',
-  todoCount: '[data-testid="todo-count"]',
-  toggleAll: 'label[for="toggle-all"]',
+  NEW_TODO_INPUT: 'input[placeholder="What needs to be done?"]',
+  TODO_TITLE: '[data-testid="todo-title"]',
+  TODO_ITEM: '[data-testid="todo-item"]',
+  TODO_COUNT: '[data-testid="todo-count"]',
+  TOGGLE_ALL_CHECKBOX: 'label[for="toggle-all"]',
 };
       </code></pre>
-      <p>Modularizes locators for easier maintenance and cleaner code.</p>
+      <p data-en="Then, import and use them in your Page Objects or tests:" data-fr="Ensuite, importez-les et utilisez-les dans vos Page Objects ou tests :">
+        Then, import and use them in your Page Objects or tests:
+      </p>
+      <pre><code>// pages/TodoAppPage.js
+import { NEW_TODO_INPUT, TODO_ITEM, TODO_COUNT } from '../selectors/todoPageSelectors';
 
-      <h3>✅ Create a reusable TodoAppPage class</h3>
-      <pre><code>class TodoAppPage {
+class TodoAppPage {
   constructor(page) {
     this.page = page;
-    this.newTodo = page.getByPlaceholder('What needs to be done?');
+    this.newTodo = page.locator(NEW_TODO_INPUT);
+    this.todoItems = page.locator(TODO_ITEM);
+    this.count = page.locator(TODO_COUNT);
+  }
+  // ... methods
+}
+      </code></pre>
+
+      <h3 data-en="✅ Create Reusable Page Classes" data-fr="✅ Créer des classes de pages réutilisables">✅ Create Reusable Page Classes</h3>
+      <p data-en="Encapsulate UI interactions within dedicated **Page Object Model (POM) classes**. This approach makes tests cleaner, more maintainable, and highly scalable by abstracting away the low-level interactions." data-fr="Encapsulez les interactions d'interface utilisateur dans des **classes Page Object Model (POM)** dédiées. Cette approche rend les tests plus propres, plus maintenables et hautement évolutifs en abstrayant les interactions de bas niveau.">
+        Encapsulate UI interactions within dedicated **Page Object Model (POM) classes**. This approach makes tests cleaner, more maintainable, and highly scalable by abstracting away the low-level interactions.
+      </p>
+      <pre><code>// pages/TodoAppPage.js
+class TodoAppPage {
+  constructor(page) {
+    this.page = page;
+    this.newTodoInput = page.getByPlaceholder('What needs to be done?');
     this.todoItems = page.getByTestId('todo-item');
-    this.count = page.getByTestId('todo-count');
+    this.todoCount = page.getByTestId('todo-count');
   }
 
   async addTodo(item) {
-    await this.newTodo.fill(item);
-    await this.newTodo.press('Enter');
+    await this.newTodoInput.fill(item);
+    await this.newTodoInput.press('Enter');
   }
 
   async addTodos(items) {
@@ -157,191 +324,484 @@ module.exports = {
   async toggleTodo(index) {
     await this.todoItems.nth(index).getByRole('checkbox').check();
   }
+
+  async getTodoCountText() {
+    return await this.todoCount.innerText();
+  }
 }
       </code></pre>
-      <p>Encapsulates UI interactions making tests cleaner, more maintainable, and scalable.</p>
 
-      <h3>✅ Use test.step() for detailed reporting</h3>
-      <pre><code>await test.step('Add 3 default todos', async () => {
-  await createDefaultTodos(page);
+      <h3 data-en="✅ Enhance Reporting with `test.step()`" data-fr="✅ Améliorer les rapports avec `test.step()`">✅ Enhance Reporting with `test.step()`</h3>
+      <p data-en="Use `test.step()` to **group related actions** and provide **detailed reporting** in your test results. This greatly improves debuggability by isolating specific logical steps." data-fr="Utilisez `test.step()` pour **regrouper les actions associées** et fournir des **rapports détaillés** dans vos résultats de test. Cela améliore considérablement la débogabilité en isolant les étapes logiques spécifiques.">
+        Use `test.step()` to **group related actions** and provide **detailed reporting** in your test results. This greatly improves debuggability by isolating specific logical steps.
+      </p>
+      <pre><code>test('should create and complete a todo', async ({ page }) => {
+  const todoAppPage = new TodoAppPage(page);
+
+  await test.step('Add a new todo item', async () => {
+    await todoAppPage.addTodo('Learn Playwright');
+    await expect(todoAppPage.todoItems).toHaveCount(1);
+  });
+
+  await test.step('Complete the todo item', async () => {
+    await todoAppPage.toggleTodo(0);
+    await expect(todoAppPage.todoItems.first()).toHaveClass(/completed/);
+  });
 });</code></pre>
-      <p>Improves debug-ability by isolating test steps for clear reporting.</p>
 
-      <h3>✅ Improve assertion messages</h3>
-      <pre><code>await expect(todoCount, 'Expect todo count to be "3 items left"').toHaveText('3 items left');</code></pre>
-      <p>Better error messages help when debugging test failures.</p>
+      <h3 data-en="✅ Improve Assertion Messages" data-fr="✅ Améliorer les messages d'assertion">✅ Improve Assertion Messages</h3>
+      <p data-en="Make your assertions more informative by **adding custom messages**. These messages are displayed when an assertion fails, providing immediate context for debugging." data-fr="Rendez vos assertions plus informatives en **ajoutant des messages personnalisés**. Ces messages sont affichés lorsqu'une assertion échoue, fournissant un contexte immédiat pour le débogage.">
+        Make your assertions more informative by **adding custom messages**. These messages are displayed when an assertion fails, providing immediate context for debugging.
+      </p>
+      <pre><code>// Assuming todoCount is a Locator
+await expect(todoCount, 'Expect todo count to be "3 items left"').toHaveText('3 items left');
 
-      <h3>✅ Snapshot testing for layout regressions</h3>
-      <pre><code>await expect(page).toHaveScreenshot('todo-page.png');</code></pre>
-      <p>Automatically detects UI regressions by comparing screenshots.</p>
+// Or for a direct value
+const actualCount = await todoAppPage.getTodoCountText();
+expect(actualCount, `Expected count to be '3 items left' but got '${actualCount}'`).toBe('3 items left');
+</code></pre>
 
-      <h3>✅ Upgrade localStorage checks</h3>
+      <h3 data-en="✅ Snapshot Testing for Layout Regressions" data-fr="✅ Test de capture d'écran pour les régressions de mise en page">✅ Snapshot Testing for Layout Regressions</h3>
+      <p data-en="Leverage **snapshot testing** to automatically detect UI regressions. Playwright captures screenshots and compares them against baseline images, flagging any visual discrepancies." data-fr="Utilisez le **snapshot testing** pour détecter automatiquement les régressions de l'interface utilisateur. Playwright capture des captures d'écran et les compare à des images de référence, signalant toute divergence visuelle.">
+        Leverage **snapshot testing** to automatically detect UI regressions. Playwright captures screenshots and compares them against baseline images, flagging any visual discrepancies.
+      </p>
+      <pre><code>// In your test file
+test('should display todo page correctly', async ({ page }) => {
+  await page.goto('/todos');
+  await expect(page).toHaveScreenshot('todo-page-initial-state.png', { fullPage: true });
+});
+</code></pre>
+      <p data-en="**Visual Comparison:** When a snapshot test fails, Playwright generates a diff image highlighting the changes. For instance, if a button unexpectedly shifted position or changed color, the diff image would clearly show the difference between the expected baseline and the actual screenshot from the failed test run. This provides immediate visual feedback on UI regressions." data-fr="**Comparaison Visuelle :** Lorsqu'un test de capture d'écran échoue, Playwright génère une image de différence mettant en évidence les changements. Par exemple, si un bouton a changé de position ou de couleur de manière inattendue, l'image de différence montrerait clairement la différence entre la base de référence attendue et la capture d'écran réelle de l'exécution du test échoué. Cela fournit un retour visuel immédiat sur les régressions de l'interface utilisateur.">
+          **Visual Comparison:** When a snapshot test fails, Playwright generates a diff image highlighting the changes. For instance, if a button unexpectedly shifted position or changed color, the diff image would clearly show the difference between the expected baseline and the actual screenshot from the failed test run. This provides immediate visual feedback on UI regressions.
+      </p>
+
+      <h3 data-en="✅ Dynamic Local Storage Checks" data-fr="✅ Vérifications dynamiques du stockage local">✅ Dynamic Local Storage Checks</h3>
+      <p data-en="Ensure your UI matches persisted data by performing **dynamic checks on local storage**. This is crucial for applications that rely heavily on client-side data persistence." data-fr="Assurez-vous que votre interface utilisateur correspond aux données persistantes en effectuant des **vérifications dynamiques sur le stockage local**. Ceci est crucial pour les applications qui dépendent fortement de la persistance des données côté client.">
+        Ensure your UI matches persisted data by performing **dynamic checks on local storage**. This is crucial for applications that rely heavily on client-side data persistence.
+      </p>
       <pre><code>async function getTodosFromLocalStorage(page) {
-  return await page.evaluate(() => JSON.parse(localStorage['react-todos']));
-}</code></pre>
-      <p>Dynamic checks to ensure UI matches persisted data.</p>
+  // Execute JavaScript in the browser context to retrieve local storage data
+  return await page.evaluate(() => JSON.parse(localStorage['react-todos'] || '[]'));
+}
 
-      <h3>Bonus Tips</h3>
+test('todos should be persisted in local storage', async ({ page }) => {
+  const todoAppPage = new TodoAppPage(page);
+  await page.goto('/todos');
+  await todoAppPage.addTodo('Buy groceries');
+  await page.reload(); // Simulate user refreshing the page
+
+  const storedTodos = await getTodosFromLocalStorage(page);
+  expect(storedTodos).toContainEqual({ title: 'Buy groceries', completed: false });
+});
+</code></pre>
+
+      <h3 data-en="Bonus Tips for a Robust Test Suite" data-fr="Conseils bonus pour une suite de tests robuste">Bonus Tips for a Robust Test Suite</h3>
       <ul>
-        <li>Use TypeScript for autocomplete and safer code.</li>
-        <li>Configure playwright.config.ts for centralized settings.</li>
-        <li>Use test.use() for customized context (viewport, storage, etc.).</li>
-        <li>Group tests by feature files for scalability.</li>
-        <li>Add tags to tests to filter CI runs.</li>
+        <li data-en="**TypeScript for Autocomplete & Safer Code:** Strongly consider using TypeScript (`.ts` files). It provides static type checking, leading to fewer runtime errors and excellent IDE autocomplete support." data-fr="**TypeScript pour l'autocomplétion et un code plus sûr :** Envisagez sérieusement d'utiliser TypeScript (fichiers `.ts`). Il fournit une vérification de type statique, ce qui réduit les erreurs d'exécution et offre une excellente prise en charge de l'autocomplétion dans l'IDE.">
+          **TypeScript for Autocomplete & Safer Code:** Strongly consider using TypeScript (`.ts` files). It provides static type checking, leading to fewer runtime errors and excellent IDE autocomplete support.
+        </li>
+        <li data-en="**Centralized Configuration (`playwright.config.ts`):** Configure all Playwright settings in a single file for better management." data-fr="**Configuration centralisée (`playwright.config.ts`) :** Configurez tous les paramètres Playwright dans un seul fichier pour une meilleure gestion.">
+          **Centralized Configuration (`playwright.config.ts`):** Configure all Playwright settings in a single file for better management.
+        </li>
+        <li data-en="**Customized Test Context (`test.use()`):** Use `test.use()` within `test.describe()` or individual tests to customize the browser context (e.g., specific viewport, authenticated storage state, network conditions) for a subset of tests." data-fr="**Contexte de test personnalisé (`test.use()`) :** Utilisez `test.use()` dans `test.describe()` ou des tests individuels pour personnaliser le contexte du navigateur (par exemple, la fenêtre d'affichage spécifique, l'état de stockage authentifié, les conditions réseau) pour un sous-ensemble de tests.">
+          **Customized Test Context (`test.use()`):** Use `test.use()` within `test.describe()` or individual tests to customize the browser context (e.g., specific viewport, authenticated storage state, network conditions) for a subset of tests.
+        </li>
+        <li data-en="**Group Tests by Feature:** Organize your tests into logical feature files (e.g., `login.spec.js`, `product.spec.js`, `checkout.spec.js`) for better scalability and discoverability." data-fr="**Regrouper les tests par fonctionnalité :** Organisez vos tests en fichiers de fonctionnalités logiques (par exemple, `login.spec.js`, `product.spec.js`, `checkout.spec.js`) pour une meilleure évolutivité et découvrabilité.">
+          **Group Tests by Feature:** Organize your tests into logical feature files (e.g., `login.spec.js`, `product.spec.js`, `checkout.spec.js`) for better scalability and discoverability.
+        </li>
+        <li data-en="**Tag Tests for Filtering:** Add `@tag` annotations (e.g., `test('admin login @smoke', ...)`) to tests, allowing you to run specific subsets of tests (e.g., `npx playwright test --grep @smoke`) in your CI/CD pipeline." data-fr="**Baliser les tests pour le filtrage :** Ajoutez des annotations `@tag` (par exemple, `test('admin login @smoke', ...)`) aux tests, vous permettant d'exécuter des sous-ensembles spécifiques de tests (par exemple, `npx playwright test --grep @smoke`) dans votre pipeline CI/CD.">
+          **Tag Tests for Filtering:** Add `@tag` annotations (e.g., `test('admin login @smoke', ...)`) to tests, allowing you to run specific subsets of tests (e.g., `npx playwright test --grep @smoke`) in your CI/CD pipeline.
+        </li>
       </ul>
     </section>
 
-    <section id="advanced2">
-      <h2 data-en="🔧 More Clean Code & Structure" data-fr="🔧 Plus de Code Propre & Structure">🔧 More Clean Code & Structure</h2>
+    ---
 
-      <h3>✅ Split tests into helper functions</h3>
-      <pre><code>async function login(page, username, password) {
+    <section id="e2e-flow">
+      <h2 data-en="🎯 Example: Complete E2E Purchase Flow" data-fr="🎯 Exemple : Flux d'achat complet E2E">🎯 Exemple : Complete E2E Purchase Flow</h2>
+      <p data-en="Let's bring it all together with a comprehensive end-to-end test for a typical e-commerce purchase flow. This example demonstrates how to integrate many of the best practices discussed." data-fr="Regroupons tout cela avec un test de bout en bout complet pour un flux d'achat e-commerce typique. Cet exemple montre comment intégrer bon nombre des meilleures pratiques abordées.">
+        Let's bring it all together with a comprehensive end-to-end test for a typical e-commerce purchase flow. This example demonstrates how to integrate many of the best practices discussed.
+      </p>
+
+      <pre><code>// tests/purchase.spec.js
+import { test, expect } from '@playwright/test';
+// Assuming you have these constants/helper functions defined elsewhere or passed via config
+const URL_PAGE = 'http://localhost:2221/';
+const Title_Page = 'Art Shopping Store';
+
+// Helper functions (example - would typically be in separate files)
+async function addProductToBasket(page, index) {
+  // Dummy implementation - replace with actual selectors/logic
+  await page.locator(`.product-card`).nth(index).getByRole('button', { name: 'Add to Basket' }).click();
+  await expect(page.locator('.basket-count')).toHaveText((index + 1).toString());
+}
+
+async function navigation(page) {
+  await page.getByRole('link', { name: 'Basket' }).click();
+}
+
+async function login(page, username, password) {
   await page.getByPlaceholder('E-Mail').fill(username);
   await page.getByPlaceholder('Password').fill(password);
   await page.getByRole('button', { name: 'Login' }).click();
-}</code></pre>
-      <p>Modular steps improve reusability and readability.</p>
-
-      <h3>✅ Use test.describe() blocks</h3>
-      <pre><code>test.describe('Checkout Flow', () => {
-  test('should complete order with discount', async ({ page }) => {
-    ...
-  });
-});</code></pre>
-      <p>Groups tests logically for better organization.</p>
-
-      <h3>✅ Use test.step() for traceability</h3>
-      <pre><code>await test.step('Login as admin', async () => {
-  await login(page, 'admin', 'Admin123');
-});</code></pre>
-      <p>Improves detailed reporting per test step.</p>
-
-      <h3>✅ Extract config/data files</h3>
-      <p>Keep test data separate for easy updates.</p>
-
-      <h3>✅ Refactor complex discount code logic</h3>
-      <pre><code>async function applyDiscountFromIframe(page) {
-  const frame = await page.frameLocator('iframe').frame();
-  const discountCode = await frame.locator('[data-qa="discount-code"]').innerText();
-
-  const input = page.getByPlaceholder('Discount code');
-  for (const char of discountCode) {
-    await input.type(char);
-    await page.waitForTimeout(1000);
-  }
-
-  await page.locator('[data-qa="submit-discount-button"]').click();
-}</code></pre>
-      <p>Clean, maintainable handling of iframe interactions.</p>
-
-      <h3>✅ Add robust error handling</h3>
-      <pre><code>try {
-  await applyDiscountFromIframe(page);
-} catch (error) {
-  console.error('Failed to apply discount code:', error.message);
-}</code></pre>
-      <p>Keeps tests stable by catching unexpected failures.</p>
-
-      <h3>✅ Assert after important steps</h3>
-      <pre><code>await expect(page).toHaveURL(/.*thank-you/);
-await expect(page.locator('text=Order confirmed')).toBeVisible();</code></pre>
-      <p>Validates crucial UI states to avoid silent failures.</p>
-
-      <h3>✅ Avoid unnecessary console logs</h3>
-      <pre><code>if (process.env.DEBUG) {
-  console.log('Logged in');
-}</code></pre>
-      <p>Keeps test output clean in production.</p>
-
-      <h3>✅ Optional: TypeScript for safety</h3>
-      <p>Get autocomplete and early error detection.</p>
-    </section>
-
-    <section id="e2eFlow">
-      <h2 data-en="🎯 Example: Complete E2E Purchase Flow" data-fr="🎯 Exemple : Flux d'achat complet E2E">🎯 Example: Complete E2E Purchase Flow</h2>
-
-      <article>
-        <h3>Step 1: Go to the product page</h3>
-        <pre><code>await page.goto(URL_PAGE, { waitUntil: 'networkidle' });</code></pre>
-        <p>Navigates to the store homepage at <code>http://localhost:2221</code>.</p>
-
-        <h3>Step 2: Check page title</h3>
-        <pre><code>const title = await page.title();
-expect(title).toContain(Title_Page);</code></pre>
-        <p>Verifies the page title contains "Art Shopping Store".</p>
-
-        <h3>Step 3: Add 3 products to the basket</h3>
-        <pre><code>const productIndices = [0, 1, 2];
-for (const index of productIndices) {
-  await addProductToBasket(page, index);
-}</code></pre>
-        <p>Adds products at index 0, 1, 2 to the cart using a reusable helper.</p>
-
-        <h3>Step 4: Navigate to basket page</h3>
-        <pre><code>await navigation(page);
-expect(page.url()).toContain('/basket');</code></pre>
-        <p>Custom <code>navigation()</code> function moves to the basket page, URL should contain <code>/basket</code>.</p>
-
-        <h3>Step 5: Login Flow</h3>
-        <pre><code>await page.getByRole('button', { name: 'Continue to Checkout' }).click();
-await page.getByPlaceholder('E-Mail').fill('admin');
-await page.getByPlaceholder('Password').fill('Admin123');
-await page.getByRole('button', { name: 'Login' }).click();</code></pre>
-        <p>Fills login form. Fixes username case and retries if needed. Waits for delivery details page.</p>
-
-        <h3>Step 6: Fill Delivery Info</h3>
-        <pre><code>await page.getByPlaceholder('First name').fill('admin');
-await page.getByPlaceholder('Last name').fill('nben salah ');
-await page.getByRole('combobox').selectOption('Tunisia');
-await page.getByRole('button', { name: 'Continue to payment' }).click();</code></pre>
-        <p>Fills the delivery form fields like name, address, country, and continues.</p>
-
-        <h3>Step 7: Discount Code Flow</h3>
-        <pre><code>const frame = await page.locator('iframe').contentFrame();
-const discountText = await frame.locator('[data-qa="discount-code"]').innerText();
-
-const input = page.getByPlaceholder('Discount code');
-for (const char of discountText) {
-  await input.type(char);
-  await page.waitForTimeout(1000);
 }
 
-await page.locator('[data-qa="submit-discount-button"]').click();</code></pre>
-        <p>Gets discount code from iframe, types it char-by-char, and submits discount.</p>
+async function applyDiscountFromIframe(page) {
+  // Use test.step for clear reporting of this complex interaction
+  await test.step('Apply discount from iframe', async () => {
+    const frameLocator = page.frameLocator('iframe'); // Locate the iframe
+    // Wait for the iframe to load and its elements to be visible
+    await frameLocator.locator('[data-qa="discount-code"]').waitFor({ state: 'visible' });
 
-        <h3>Step 8: Assert Discount Works</h3>
-        <pre><code>const totalNumber = await page.locator('[data-qa="total-value"]').innerText();
-const discountNumber = await page.locator('[data-qa="total-with-discount-value"]').innerText();
-// Assert discount price <= original price</code></pre>
-        <p>Checks the new price with discount is less than or equal to original price.</p>
+    const discountCode = await frameLocator.locator('[data-qa="discount-code"]').innerText();
+    const input = page.getByPlaceholder('Discount code');
 
-        <h3>Step 9: Fill Credit Card Info</h3>
-        <pre><code>const credential = {
-  nameOwner:"meriam ben salah",
-  cardNumber:'12345678912345678',
-  validUtil:"12/15",
-  cvc:'1234'
-};
-// fill credit card form fields...
+    // Type char-by-char to simulate user input, if required for application behavior
+    for (const char of discountCode) {
+      await input.type(char);
+      // await page.waitForTimeout(100); // Only if absolutely necessary for app behavior
+    }
 
-await page.getByRole('button', { name: 'Pay' }).click();</code></pre>
-        <p>Fills payment form with dummy values and clicks Pay.</p>
+    await page.locator('[data-qa="submit-discount-button"]').click();
+  });
+}
 
-        <h3>Step 10: Final page</h3>
-        <pre><code>await page.goto('http://localhost:2221/thank-you');</code></pre>
-        <p>Goes to thank-you page (indicates success).</p>
+test.describe('E-commerce Purchase Flow', () => {
 
-        <h3>Debug Pause</h3>
-        <pre><code>await page.pause();</code></pre>
-        <p>Pauses the browser so you can debug manually (remove in prod).</p>
-      </article>
-    </section>
+  test('should complete a successful purchase with discount', async ({ page }) => {
+    // Step 1: Go to the product page
+    await test.step('Navigate to the product page', async () => {
+      await page.goto(URL_PAGE, { waitUntil: 'networkidle' });
+      // Navigates to the store homepage at http://localhost:2221.
+    });
+
+    // Step 2: Check page title
+    await test.step('Verify page title', async () => {
+      const title = await page.title();
+      await expect(title, `Expected page title to contain "${Title_Page}"`).toContain(Title_Page);
+      // Verifies the page title contains "Art Shopping Store".
+    });
+
+    // Step 3: Add 3 products to the basket
+    await test.step('Add products to the basket', async () => {
+      const productIndices = [0, 1, 2];
+      for (const index of productIndices) {
+        await addProductToBasket(page, index);
+      }
+      // Adds products at index 0, 1, 2 to the cart using a reusable helper.
+    });
+
+    // Step 4: Navigate to basket page
+    await test.step('Navigate to the basket page', async () => {
+      await navigation(page);
+      await expect(page.url(), 'Expected URL to contain "/basket"').toContain('/basket');
+      // Custom navigation() function moves to the basket page, URL should contain /basket.
+    });
+
+    // Step 5: Login Flow
+    await test.step('Perform login', async () => {
+      await page.getByRole('button', { name: 'Continue to Checkout' }).click();
+      await login(page, 'admin@example.com', 'Admin123'); // Use a valid test email
+      // Waits for delivery details page.
+      await expect(page.locator('text=Delivery Details')).toBeVisible(); // Assert transition to next page
+    });
+
+    // Step 6: Fill Delivery Info
+    await test.step('Fill delivery information', async () => {
+      await page.getByPlaceholder('First name').fill('admin');
+      await page.getByPlaceholder('Last name').fill('nben salah');
+      await page.getByRole('combobox').selectOption('Tunisia');
+      await page.getByRole('button', { name: 'Continue to payment' }).click();
+      // Fills the delivery form fields like name, address, country, and continues.
+      await expect(page.locator('text=Payment Details')).toBeVisible(); // Assert transition
+    });
+
+    // Step 7: Discount Code Flow
+    await test.step('Apply discount code', async () => {
+      // Use helper function for iframe interaction with robust error handling
+      try {
+        await applyDiscountFromIframe(page);
+      } catch (error) {
+        console.error('Failed to apply discount code in test:', error.message);
+        throw error; // Re-throw to fail the test if discount fails
+      }
+      // Gets discount code from iframe, types it char-by-char, and submits discount.
+    });
+
+    // Step 8: Assert Discount Works
+    await test.step('Verify discount application', async () => {
+      const totalNumber = parseFloat((await page.locator('[data-qa="total-value"]').innerText()).replace(/[^0-9.-]+/g,""));
+      const discountNumber = parseFloat((await page.locator('[data-qa="total-with-discount-value"]').innerText()).replace(/[^0-9.-]+/g,""));
+      await expect(discountNumber, `Expected discounted price (${discountNumber}) to be less than or equal to original price (${totalNumber})`).toBeLessThanOrEqual(totalNumber);
+      // Checks the new price with discount is less than or equal to original price.
+    });
+
+    // Step 9: Fill Credit Card Info
+    await test.step('Fill credit card information', async () => {
+      const credential = {
+        nameOwner:"meriam ben salah",
+        cardNumber:'1234567891234567', // Corrected to 16 digits
+        validUtil:"12/25", // Use a future date
+        cvc:'123'
+      };
+      await page.getByLabel('Cardholder Name').fill(credential.nameOwner);
+      await page.getByLabel('Card Number').fill(credential.cardNumber);
+      await page.getByLabel('Valid Until').fill(credential.validUtil);
+      await page.getByLabel('CVC').fill(credential.cvc);
+
+      await page.getByRole('button', { name: 'Pay' }).click();
+      // Fills payment form with dummy values and clicks Pay.
+    });
+
+    // Step 10: Final page assertion
+    await test.step('Verify successful purchase completion', async () => {
+      // Rather than just navigating, assert that the application *redirects* to the thank-you page
+      await expect(page).toHaveURL(/.*thank-you/, 'Expected to be on the thank-you page');
+      await expect(page.locator('text=Order confirmed'), 'Expected "Order confirmed" message to be visible').toBeVisible();
+      // Goes to thank-you page (indicates success).
+    });
+
+    // Debug Pause (Remove in production!)
+    // await page.pause();
+    // Pauses the browser so you can debug manually.
+  });
+});
+</code></pre>
+
+---
+
+<section id="troubleshooting">
+    <h2 data-en="🛠️ Troubleshooting Common Playwright Errors" data-fr="🛠️ Dépannage des Erreurs Courantes de Playwright">🛠️ Troubleshooting Common Playwright Errors</h2>
+    <p data-en="Even with Playwright's robustness, you might encounter issues. Here's how to tackle some common errors and debug effectively." data-fr="Même avec la robustesse de Playwright, vous pourriez rencontrer des problèmes. Voici comment aborder certaines erreurs courantes et déboguer efficacement.">
+        Even with Playwright's robustness, you might encounter issues. Here's how to tackle some common errors and debug effectively.
+    </p>
+
+    <h3 data-en="Element Not Found / Element Not Interactable" data-fr="Élément Introuvable / Élément Non Interactif">Element Not Found / Element Not Interactable</h3>
+    <p data-en="These are often timing-related or due to incorrect locators. Playwright's auto-waiting handles most cases, but sometimes explicit waits or more specific locators are needed." data-fr="Ceux-ci sont souvent liés au timing ou à des localisateurs incorrects. L'attente automatique de Playwright gère la plupart des cas, mais parfois des attentes explicites ou des localisateurs plus spécifiques sont nécessaires.">
+        These are often timing-related or due to incorrect locators. Playwright's auto-waiting handles most cases, but sometimes explicit waits or more specific locators are needed.
+    </p>
+    <ul>
+        <li data-en="**Check Locator Accuracy:** Use the Playwright Inspector (`npx playwright test --debug`) to verify your locator. Ensure it's unique and targets the correct element." data-fr="**Vérifiez la précision du localisateur :** Utilisez l'inspecteur Playwright (`npx playwright test --debug`) pour vérifier votre localisateur. Assurez-vous qu'il est unique et cible le bon élément.">
+            **Check Locator Accuracy:** Use the Playwright Inspector (`npx playwright test --debug`) to verify your locator. Ensure it's unique and targets the correct element.
+        </li>
+        <li data-en="**Visibility & Enabled State:** Playwright waits for elements to be visible and enabled by default. If an element is hidden or disabled by CSS/JS, it won't be interacted with. You might need to wait for a specific state (`await page.locator('#myButton').waitFor({ state: 'visible' });`)." data-fr="**Visibilité et État Activé :** Playwright attend que les éléments soient visibles et activés par défaut. Si un élément est caché ou désactivé par CSS/JS, il n'interagira pas. Vous devrez peut-être attendre un état spécifique (`await page.locator('#myButton').waitFor({ state: 'visible' });`).">
+            **Visibility & Enabled State:** Playwright waits for elements to be visible and enabled by default. If an element is hidden or disabled by CSS/JS, it won't be interacted with. You might need to wait for a specific state (`await page.locator('#myButton').waitFor({ state: 'visible' });`).
+        </li>
+        <li data-en="**Stale Elements:** If the DOM changes significantly after finding an element but before interacting with it, the element might become 'stale'. Re-locate the element if necessary." data-fr="**Éléments obsolètes :** Si le DOM change de manière significative après avoir trouvé un élément mais avant d'interagir avec lui, l'élément peut devenir 'obsolète'. Relocalisez l'élément si nécessaire.">
+            **Stale Elements:** If the DOM changes significantly after finding an element but before interacting with it, the element might become 'stale'. Re-locate the element if necessary.
+        </li>
+    </ul>
+
+    <h3 data-en="Test Flakiness" data-fr="Fragilité des Tests">Test Flakiness</h3>
+    <p data-en="Tests that pass sometimes and fail sometimes are flaky. This is usually due to race conditions or inadequate waiting strategies." data-fr="Les tests qui passent parfois et échouent parfois sont fragiles. Cela est généralement dû à des conditions de concurrence ou à des stratégies d'attente inadéquates.">
+        Tests that pass sometimes and fail sometimes are flaky. This is usually due to race conditions or inadequate waiting strategies.
+    </p>
+    <ul>
+        <li data-en="**Avoid `page.waitForTimeout()`:** This is a fixed, arbitrary wait and should almost always be avoided. It doesn't account for actual element readiness." data-fr="**Évitez `page.waitForTimeout()` :** Il s'agit d'une attente fixe et arbitraire qui devrait presque toujours être évitée. Elle ne tient pas compte de la réelle disponibilité des éléments.">
+            **Avoid `page.waitForTimeout()`:** This is a fixed, arbitrary wait and should almost always be avoided. It doesn't account for actual element readiness.
+        </li>
+        <li data-en="**Use Assertions for Waiting:** Playwright's `expect` assertions (e.g., `toHaveText`, `toBeVisible`) automatically retry until the condition is met or the timeout is reached. This is the most reliable way to wait." data-fr="**Utilisez les assertions pour l'attente :** Les assertions `expect` de Playwright (par exemple, `toHaveText`, `toBeVisible`) réessayent automatiquement jusqu'à ce que la condition soit remplie ou que le délai soit atteint. C'est le moyen le plus fiable d'attendre.">
+            **Use Assertions for Waiting: Playwright's `expect` assertions (e.g., `toHaveText`, `toBeVisible`) automatically retry until the condition is met or the timeout is reached. This is the most reliable way to wait.
+        </li>
+        <li data-en="**Network Waiting:** For actions that trigger API calls, wait for network conditions if the UI depends on them (e.g., `page.waitForResponse` or `page.waitForLoadState('networkidle')`)." data-fr="**Attente Réseau :** Pour les actions qui déclenchent des appels API, attendez les conditions réseau si l'interface utilisateur en dépend (par exemple, `page.waitForResponse` ou `page.waitForLoadState('networkidle')`).">
+            **Network Waiting:** For actions that trigger API calls, wait for network conditions if the UI depends on them (e.g., `page.waitForResponse` or `page.waitForLoadState('networkidle')`).
+        </li>
+    </ul>
+
+    <h3 data-en="Browser Context or Page Not Defined" data-fr="Contexte du Navigateur ou Page Non Définie">Browser Context or Page Not Defined</h3>
+    <p data-en="Ensure your tests are structured correctly within `test()` blocks where `page` is passed as a fixture. If you're using helper functions outside of the `test` block, ensure `page` is properly passed to them." data-fr="Assurez-vous que vos tests sont correctement structurés dans des blocs `test()` où `page` est passé comme fixture. Si vous utilisez des fonctions d'aide en dehors du bloc `test`, assurez-vous que `page` leur est correctement transmis.">
+        Ensure your tests are structured correctly within `test()` blocks where `page` is passed as a fixture. If you're using helper functions outside of the `test` block, ensure `page` is properly passed to them.
+    </p>
+
+    <h3 data-en="Debugging Tools" data-fr="Outils de Débogage">Debugging Tools</h3>
+    <p data-en="When an error occurs, Playwright provides powerful tools to help you understand what went wrong." data-fr="Lorsqu'une erreur survient, Playwright fournit des outils puissants pour vous aider à comprendre ce qui n'a pas fonctionné.">
+        When an error occurs, Playwright provides powerful tools to help you understand what went wrong.
+    </p>
+    <ul>
+        <li data-en="**`npx playwright test --debug`:** Opens the Playwright Inspector, allowing you to step through your test, explore the DOM, and try out locators." data-fr="**`npx playwright test --debug` :** Ouvre l'inspecteur Playwright, vous permettant de parcourir votre test, d'explorer le DOM et d'essayer des localisateurs.">
+            **`npx playwright test --debug`:** Opens the Playwright Inspector, allowing you to step through your test, explore the DOM, and try out locators.
+        </li>
+        <li data-en="**`page.pause()`:** Inserts a breakpoint in your test, pausing execution and opening the Playwright Inspector at that specific point." data-fr="**`page.pause()` :** Insère un point d'arrêt dans votre test, interrompant l'exécution et ouvrant l'inspecteur Playwright à ce point précis.">
+            **`page.pause()`:** Inserts a breakpoint in your test, pausing execution and opening the Playwright Inspector at that specific point.
+        </li>
+        <li data-en="**Test Tracing:** Configure `trace: 'on-first-retry'` in `playwright.config.js` to get a detailed trace for failed tests, including videos, screenshots, and step-by-step logs. View with `npx playwright show-trace path/to/trace.zip`." data-fr="**Suivi des Tests :** Configurez `trace: 'on-first-retry'` dans `playwright.config.js` pour obtenir une trace détaillée des tests échoués, y compris des vidéos, des captures d'écran et des journaux étape par étape. Affichez avec `npx playwright show-trace chemin/vers/trace.zip`.">
+            **Test Tracing:** Configure `trace: 'on-first-retry'` in `playwright.config.js` to get a detailed trace for failed tests, including videos, screenshots, and step-by-step logs. View with `npx playwright show-trace path/to/trace.zip`.
+        </li>
+    </ul>
+</section>
+
+---
+
+<section id="ci-cd">
+    <h2 data-en="🚀 Playwright in CI/CD: Automate Your Tests" data-fr="🚀 Playwright en CI/CD : Automatisez vos Tests">🚀 Playwright in CI/CD: Automate Your Tests</h2>
+    <p data-en="Integrating Playwright into your Continuous Integration/Continuous Deployment (CI/CD) pipeline is essential for fast feedback and reliable deployments. Here are examples for common CI/CD platforms." data-fr="L'intégration de Playwright dans votre pipeline d'Intégration Continue/Déploiement Continu (CI/CD) est essentielle pour un feedback rapide et des déploiements fiables. Voici des exemples pour les plateformes CI/CD courantes.">
+        Integrating Playwright into your Continuous Integration/Continuous Deployment (CI/CD) pipeline is essential for fast feedback and reliable deployments. Here are examples for common CI/CD platforms.
+    </p>
+
+    <h3 data-en="GitHub Actions Example" data-fr="Exemple GitHub Actions">GitHub Actions Example</h3>
+    <p data-en="A basic GitHub Actions workflow to run your Playwright tests on push or pull request." data-fr="Un workflow GitHub Actions de base pour exécuter vos tests Playwright lors d'un push ou d'une pull request.">
+        A basic GitHub Actions workflow to run your Playwright tests on push or pull request.
+    </p>
+    <pre><code># .github/workflows/playwright.yml
+name: Playwright Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest # Or windows-latest, macos-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18 # Use a compatible Node.js version
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps # Important for CI/CD environments
+
+    - name: Run Playwright tests
+      run: npx playwright test
+
+    - name: Upload Playwright Report
+      if: always() # Upload even if tests fail
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30 # Keep artifacts for 30 days
+    </code></pre>
+    <p data-en="**Key points:** `npx playwright install --with-deps` is crucial for installing browser dependencies in CI environments. `actions/upload-artifact` saves the HTML report for review." data-fr="**Points clés :** `npx playwright install --with-deps` est crucial pour installer les dépendances du navigateur dans les environnements CI. `actions/upload-artifact` enregistre le rapport HTML pour examen.">
+        **Key points:** `npx playwright install --with-deps` is crucial for installing browser dependencies in CI environments. `actions/upload-artifact` saves the HTML report for review.
+    </p>
+
+    <h3 data-en="GitLab CI/CD Example" data-fr="Exemple GitLab CI/CD">GitLab CI/CD Example</h3>
+    <p data-en="A `.gitlab-ci.yml` configuration for running Playwright tests in GitLab." data-fr="Une configuration `.gitlab-ci.yml` pour exécuter des tests Playwright dans GitLab.">
+        A `.gitlab-ci.yml` configuration for running Playwright tests in GitLab.
+    </p>
+    <pre><code># .gitlab-ci.yml
+image: mcr.microsoft.com/playwright/python:v1.44.0-jammy # A Playwright-ready Docker image
+
+stages:
+  - test
+
+e2e_tests:
+  stage: test
+  script:
+    - npm install # Install project dependencies
+    - npx playwright install --with-deps # Install Playwright browsers and their dependencies
+    - npx playwright test # Run your tests
+  artifacts:
+    when: always # Collect artifacts even on failure
+    paths:
+      - playwright-report/ # Save the HTML report
+      - test-results/ # Save screenshots/videos
+    expire_in: 1 week
+  # Add services if your application needs a database or other services
+  # services:
+  #   - name: postgres:latest
+  #     alias: database
+  # variables:
+  #   PGHOST: database
+    </code></pre>
+    <p data-en="**Key points:** Using a pre-built Playwright Docker image simplifies setup. Artifacts are configured to save test results and reports." data-fr="**Points clés :** L'utilisation d'une image Docker Playwright pré-construite simplifie la configuration. Les artefacts sont configurés pour enregistrer les résultats des tests et les rapports.">
+        **Key points:** Using a pre-built Playwright Docker image simplifies setup. Artifacts are configured to save test results and reports.
+    </p>
+
+    <h3 data-en="CI/CD Report Summary" data-fr="Résumé du Rapport CI/CD">CI/CD Report Summary</h3>
+    <p data-en="After running tests in CI/CD, Playwright generates a comprehensive HTML report (e.g., in `playwright-report/`). This report provides a detailed overview of test results, including passing/failing tests, execution times, and if configured, videos and traces for failed tests. You can often access this report directly from your CI/CD platform's artifacts section to quickly review test outcomes." data-fr="Après l'exécution des tests en CI/CD, Playwright génère un rapport HTML complet (par exemple, dans `playwright-report/`). Ce rapport fournit un aperçu détaillé des résultats des tests, y compris les tests réussis/échoués, les temps d'exécution, et si configuré, des vidéos et des traces pour les tests échoués. Vous pouvez souvent accéder à ce rapport directement depuis la section des artefacts de votre plateforme CI/CD pour examiner rapidement les résultats des tests.">
+        After running tests in CI/CD, Playwright generates a comprehensive HTML report (e.g., in `playwright-report/`). This report provides a detailed overview of test results, including passing/failing tests, execution times, and if configured, videos and traces for failed tests. You can often access this report directly from your CI/CD platform's artifacts section to quickly review test outcomes.
+    </p>
+</section>
+
+---
+
+<section id="vscode-features">
+    <h2 data-en="💻 Supercharge Playwright with VS Code Extension" data-fr="💻 Boostez Playwright avec l'extension VS Code">💻 Supercharge Playwright with VS Code Extension</h2>
+    <p data-en="The official Playwright Test extension for Visual Studio Code is an indispensable tool that significantly enhances your test development and debugging workflow." data-fr="L'extension officielle Playwright Test pour Visual Studio Code est un outil indispensable qui améliore considérablement votre flux de travail de développement et de débogage de tests.">
+        The official Playwright Test extension for Visual Studio Code is an indispensable tool that améliore considérablement votre flux de travail de développement et de débogage de tests.
+    </p>
+
+    <h3 data-en="Test Explorer & Run Options" data-fr="Explorateur de Tests et Options d'Exécution">Test Explorer & Run Options</h3>
+    <p data-en="The 'Testing' sidebar in VS Code (the beaker icon) provides a comprehensive view of your test suite. You can run individual tests, files, or entire suites directly from the UI." data-fr="La barre latérale 'Tests' dans VS Code (l'icône en forme de bécher) offre une vue complète de votre suite de tests. Vous pouvez exécuter des tests individuels, des fichiers ou des suites entières directement depuis l'interface utilisateur.">
+        The 'Testing' sidebar in VS Code (the beaker icon) provides a comprehensive view of your test suite. You can run individual tests, files, or entire suites directly from the UI.
+    </p>
+    <ul>
+        <li data-en="**Run & Debug Buttons:** Hover over a test or `test.describe` block in your code to see inline 'Run' and 'Debug' buttons." data-fr="**Boutons Exécuter et Déboguer :** Passez la souris sur un test ou un bloc `test.describe` dans votre code pour voir les boutons 'Exécuter' et 'Déboguer' en ligne.">
+            **Run & Debug Buttons:** Hover over a test or `test.describe` block in your code to see inline 'Run' and 'Debug' buttons.
+        </li>
+        <li data-en="**Filtering:** Easily filter tests by name or status in the Test Explorer." data-fr="**Filtrage :** Filtrez facilement les tests par nom ou par statut dans l'Explorateur de tests.">
+            **Filtering:** Easily filter tests by name or by status in the Test Explorer.
+        </li>
+        <li data-en="**Test Results:** See immediate pass/fail feedback and detailed error messages right within the editor." data-fr="**Résultats des Tests :** Obtenez un feedback immédiat de réussite/échec et des messages d'erreur détaillés directement dans l'éditeur.">
+            **Test Results:** See immediate pass/fail feedback and detailed error messages right within the editor.
+        </li>
+    </ul>
+    <p data-en="In the VS Code Test Explorer, you'll see a list of your test files and individual tests. Each test will have a run or debug icon next to it, and after execution, a checkmark for pass or an 'X' for fail, with detailed error messages displayed in the output panel." data-fr="Dans l'Explorateur de tests de VS Code, vous verrez une liste de vos fichiers de test et de vos tests individuels. Chaque test aura une icône d'exécution ou de débogage à côté, et après l'exécution, une coche pour la réussite ou un 'X' pour l'échec, avec des messages d'erreur détaillés affichés dans le panneau de sortie.">
+        In the VS Code Test Explorer, you'll see a list of your test files and individual tests. Each test will have a run or debug icon next to it, and after execution, a checkmark for pass or an 'X' for fail, with detailed error messages displayed in the output panel.
+    </p>
+
+    <h3 data-en="Debugging Made Easy" data-fr="Le Débogage Facilité">Debugging Made Easy</h3>
+    <p data-en="The extension integrates seamlessly with VS Code's debugger, allowing you to set breakpoints and inspect variables directly." data-fr="L'extension s'intègre parfaitement au débogueur de VS Code, vous permettant de définir des points d'arrêt et d'inspecter les variables directement.">
+        The extension integrates seamlessly with VS Code's debugger, allowing you to set breakpoints and inspect variables directly.
+    </p>
+    <ul>
+        <li data-en="**Breakpoints:** Click in the gutter next to a line number to set a breakpoint. When debugging, execution will pause here." data-fr="**Points d'arrêt :** Cliquez dans la gouttière à côté d'un numéro de ligne pour définir un point d'arrêt. Lors du débogage, l'exécution s'arrêtera ici.">
+            **Breakpoints:** Click in the gutter next to a line number to set a breakpoint. When debugging, execution will pause here.
+        </li>
+        <li data-en="**Inspect Variables:** While paused at a breakpoint, inspect the `page` object, locators, and other variables in the 'Variables' panel." data-fr="**Inspectez les Variables :** Pendant la pause à un point d'arrêt, inspectez l'objet `page`, les localisateurs et les autres variables dans le panneau 'Variables'.">
+            **Inspect Variables:** While paused at a breakpoint, inspect the `page` object, locators, and other variables in the 'Variables' panel.
+        </li>
+    </ul>
+    <p data-en="When you set a breakpoint and run your test in debug mode, VS Code will pause execution at that line. You can then hover over variables (like `page` or a locator), step through code line by line, and view the call stack, providing deep insight into test execution." data-fr="Lorsque vous définissez un point d'arrêt et exécutez votre test en mode débogage, VS Code mettra en pause l'exécution à cette ligne. Vous pouvez ensuite survoler les variables (comme `page` ou un localisateur), parcourir le code ligne par ligne et afficher la pile d'appels, ce qui vous donne un aperçu approfondi de l'exécution du test.">
+        When you set a breakpoint and run your test in debug mode, VS Code will pause execution at that line. You can then hover over variables (like `page` or a locator), step through code line by line, and view the call stack, providing deep insight into test execution.
+    </p>
+
+    <h3 data-en="Playwright Inspector Integration" data-fr="Intégration de l'Inspecteur Playwright">Intégration de l'Inspecteur Playwright</h3>
+    <p data-en="The Inspector is invaluable for visually debugging tests and finding robust locators." data-fr="L'inspecteur est inestimable pour déboguer visuellement les tests et trouver des localisateurs robustes.">
+        The Inspector is invaluable for visually debugging tests and finding robust locators.
+    </p>
+    <ul>
+        <li data-en="**Launch from Debugger:** When debugging, the Inspector automatically launches if `page.pause()` is encountered or if you step through an interaction." data-fr="**Lancer depuis le Débogueur :** Lors du débogage, l'Inspecteur se lance automatiquement si `page.pause()` est rencontré ou si vous parcourez une interaction.">
+            **Launch from Debugger:** When debugging, the Inspector automatically launches if `page.pause()` is encountered or if you step through an interaction.
+        </li>
+        <li data-en="**Pick Locator Tool:** Use the 'Pick Locator' tool within the Inspector to click on elements in the browser and automatically generate various locator strategies." data-fr="**Outil de sélection de localisateur :** Utilisez l'outil 'Pick Locator' dans l'inspecteur pour cliquer sur les éléments dans le navigateur et générer automatiquement diverses stratégies de localisateur.">
+            **Pick Locator Tool:** Use the 'Pick Locator' tool within the Inspector to click on elements in the browser and automatically generate various locator strategies.
+        </li>
+    </ul>
+    <p data-en="When the Playwright Inspector opens, you'll see your web application in a browser window, alongside a panel showing Playwright actions and suggested locators. You can click on elements in the browser to automatically generate and test locators, making it easy to find reliable ways to interact with your UI." data-fr="Lorsque l'Inspecteur Playwright s'ouvre, vous verrez votre application web dans une fenêtre de navigateur, à côté d'un panneau affichant les actions Playwright et les localisateurs suggérés. Vous pouvez cliquer sur des éléments dans le navigateur pour générer et tester automatiquement des localisateurs, ce qui facilite la recherche de moyens fiables d'interagir avec votre interface utilisateur.">
+        When the Playwright Inspector opens, you'll see your web application in a browser window, alongside a panel showing Playwright actions and suggested locators. You can click on elements in the browser to automatically generate and test locators, making it easy to find reliable ways to interact with your UI.
+    </p>
+
+    <h3 data-en="Test Tracing Integration" data-fr="Intégration du suivi des tests">Test Tracing Integration</h3>
+    <p data-en="View detailed traces of your test runs directly within VS Code." data-fr="Affichez des traces détaillées de vos exécutions de tests directement dans VS Code.">
+        View detailed traces of your test runs directly within VS Code.
+    </p>
+    <ul>
+        <li data-en="**Automatic Traces:** With `trace: 'on-first-retry'` in your config, traces are saved on failure. The extension can help open these." data-fr="**Traces automatiques :** Avec `trace: 'on-first-retry'` dans votre configuration, les traces sont enregistrées en cas d'échec. L'extension peut aider à les ouvrir.">
+            **Automatic Traces:** With `trace: 'on-first-retry'` in your config, traces are saved on failure. The extension can help open these.
+        </li>
+        <li data-en="**Visual Debugging:** Traces provide a timeline of actions, DOM snapshots, network logs, and console output for each step, making root cause analysis much faster." data-fr="**Débogage Visuel :** Les traces fournissent une chronologie des actions, des instantanés DOM, des journaux réseau et de la sortie console pour chaque étape, ce qui accélère considérablement l'analyse des causes profondes.">
+            **Visual Debugging:** Traces provide a timeline of actions, DOM snapshots, network logs, and console output for each step, making root cause analysis much faster.
+        </li>
+    </ul>
+    <p data-en="The Trace Viewer displays a step-by-step replay of your test, showing before/after snapshots of the page at each action, network requests, console logs, and even a video of the test run. This provides an incredibly rich context for understanding why a test failed, without needing to re-run it." data-fr="Le Trace Viewer affiche une relecture pas à pas de votre test, montrant des instantanés avant/après de la page à chaque action, les requêtes réseau, les journaux de la console et même une vidéo de l'exécution du test. Cela fournit un contexte incroyablement riche pour comprendre pourquoi un test a échoué, sans avoir besoin de le réexécuter.">
+        The Trace Viewer displays a step-by-step replay of your test, showing before/after snapshots of the page at each action, network requests, console logs, and even a video of the test run. This provides an incredibly rich context for understanding why a test failed, without needing to re-run it.
+    </p>
+</section>
   </main>
 
   <footer>
     <p>Made with 💻 & ☕ by Mayna</p>
   </footer>
-    <script defer src="main.js"></script>
-
+  <script defer src="main.js"></script>
 </body>
 </html>

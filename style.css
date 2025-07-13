@@ -49,7 +49,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens before hamburger appears */
 }
 nav h1 {
   font-size: 1.6rem;
@@ -65,6 +65,7 @@ nav ul li {
   font-weight: 600;
 }
 nav ul li a {
+  color: #fff; /* Ensure nav links are white in light mode header */
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
   transition: background-color 0.2s ease;
@@ -72,6 +73,9 @@ nav ul li a {
 nav ul li a:hover {
   background-color: #3498db;
   color: #fff;
+}
+.dark-mode nav ul li a {
+    color: #ddd; /* Ensure nav links are light in dark mode header */
 }
 .dark-mode nav ul li a:hover {
   background-color: #63a4ff;
@@ -112,24 +116,42 @@ main {
   margin: 2rem auto;
   padding: 0 1rem;
 }
+
+/* Section styling moved here from HTML <style> */
 section {
-  margin-bottom: 3rem;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #fff; /* White background for sections in light mode */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+.dark-mode section {
+    background-color: #333;
+    color: #eee;
+}
+
 section h2 {
   font-size: 1.8rem;
   margin-bottom: 0.75rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid #3498db;
+  color: #222; /* Default color for h2 in light mode */
 }
+.dark-mode section h2 {
+    color: #eee; /* Light color for h2 in dark mode */
+    border-bottom-color: #63a4ff; /* Match dark mode link color */
+}
+
 section h3 {
   font-size: 1.3rem;
   margin-top: 1.8rem;
   margin-bottom: 0.5rem;
-  color: #2c3e50;
+  color: #2c3e50; /* Darker color for h3 in light mode */
 }
 .dark-mode section h3 {
-  color: #8ab4f8;
+  color: #8ab4f8; /* Lighter color for h3 in dark mode */
 }
+
 p, ul {
   font-size: 1rem;
   line-height: 1.6;
@@ -141,6 +163,14 @@ ul {
 }
 ul li {
   margin-bottom: 0.5rem;
+}
+
+/* Strong tag styling */
+strong {
+    color: #007bff; /* Highlight important text in light mode */
+}
+.dark-mode strong {
+    color: #90CAF9; /* Highlight important text in dark mode */
 }
 
 /* ========== CODE BLOCKS ========== */
@@ -176,35 +206,8 @@ footer {
   color: #bbb;
 }
 
-/* ========== RESPONSIVE ========== */
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  nav ul {
-    flex-direction: column;
-    width: 100%;
-    padding: 0.5rem 0;
-  }
-
-  nav ul li {
-    width: 100%;
-  }
-
-  nav ul li a {
-    display: block;
-    width: 100%;
-    padding-left: 1rem;
-  }
-
-  .toggles {
-    width: 100%;
-    justify-content: flex-start;
-  }
-}
+/* ========== RESPONSIVE (Hamburger Menu) ========== */
+/* Hide menu toggle by default on larger screens */
 .menu-toggle {
   display: none;
   background: none;
@@ -212,32 +215,43 @@ footer {
   font-size: 2rem;
   color: #fff;
   cursor: pointer;
+  order: 2; /* Ensure it stays to the right of the title */
+  margin-left: auto; /* Push it to the far right */
 }
 
 @media (max-width: 768px) {
   nav {
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* Prevent nav items from wrapping before menu toggle appears */
+    justify-content: space-between; /* Keep space between title and toggle */
     align-items: center;
   }
 
+  /* Show hamburger menu toggle on small screens */
   .menu-toggle {
     display: block;
   }
 
+  /* Hide nav links by default on small screens */
   .nav-links {
-    display: none;
+    display: none; /* Hidden by default */
     flex-direction: column;
     width: 100%;
-    background-color: #222;
+    background-color: #222; /* Match header background */
     padding: 10px 0;
     position: absolute;
-    top: 100%;
+    top: 100%; /* Position below the header */
     left: 0;
     z-index: 1000;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   }
 
-  .nav-links.show {
+  /* Show nav links when 'show' class is active */
+  .nav-links.show { /* Renamed from .open to .show for consistency with JS */
     display: flex;
+  }
+
+  .dark-mode .nav-links {
+    background-color: #111;
   }
 
   .nav-links li {
@@ -246,7 +260,31 @@ footer {
     padding-left: 20px;
   }
 
+  .nav-links li a {
+    color: #fff; /* Ensure links are visible in collapsed menu */
+    display: block;
+    padding: 10px 20px;
+  }
+  .dark-mode .nav-links li a {
+    color: #ddd;
+  }
+
+  /* Adjust toggles on small screens */
   .toggles {
-    margin-left: auto;
+    /* No need for margin-left: auto; if menu-toggle handles positioning */
+    order: 3; /* Position after hamburger and title */
+    margin-right: 1rem; /* Add some spacing from the edge */
+  }
+
+  nav h1 {
+    flex-grow: 1; /* Allow title to take up remaining space */
+    margin-right: 10px; /* Space between title and toggle/toggles */
+  }
+}
+
+/* Ensure navigation links don't wrap on wider screens if they don't fit */
+@media (min-width: 769px) {
+  nav .nav-links {
+    display: flex !important; /* Ensure nav links are always visible on larger screens */
   }
 }
