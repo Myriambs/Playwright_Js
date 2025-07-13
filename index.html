@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Testing With Style</title>
   <link rel="stylesheet" href="style.css" />
-  <script defer src="app.js"></script>
   <style>
     pre {
       background-color: #282c34;
@@ -45,9 +44,11 @@
     </ul>
 
     <!-- Dark Mode Toggle -->
-    <div class="toggles">
-      <button id="modeToggle">🌙</button>
-    </div>
+  <div class="toggles">
+  <button id="modeToggle">🌙</button>
+  <button id="langToggle">🇫🇷</button>
+</div>
+
   </nav>
 </header>
 
@@ -340,5 +341,7 @@ await page.getByRole('button', { name: 'Pay' }).click();</code></pre>
   <footer>
     <p>Made with 💻 & ☕ by Mayna</p>
   </footer>
+    <script defer src="main.js"></script>
+
 </body>
 </html>
