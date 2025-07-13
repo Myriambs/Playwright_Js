@@ -25,22 +25,32 @@
 </head>
 <body>
   <header>
-    <nav>
-      <h1 id="siteTitle">Testing With Style</h1>
-      <ul class="nav-links">
-        <li><a href="#page1">Playwright Intro</a></li>
-        <li><a href="#page2">Setup</a></li>
-        <li><a href="#page3">Best Practices</a></li>
-        <li><a href="#page4">JS Power Boost</a></li>
-        <li><a href="#advanced">Advanced Tips</a></li>
-        <li><a href="#advanced2">More Clean Code</a></li>
-        <li><a href="#e2eFlow">E2E Flow Example</a></li>
-      </ul>
-      <div class="toggles">
-        <button id="modeToggle">🌙</button>
-      </div>
-    </nav>
-  </header>
+  <nav>
+    <h1 id="siteTitle">Testing With Style</h1>
+
+    <!-- Hamburger Button -->
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+      ☰
+    </button>
+
+    <!-- Navigation Links -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#page1">Playwright Intro</a></li>
+      <li><a href="#page2">Setup</a></li>
+      <li><a href="#page3">Best Practices</a></li>
+      <li><a href="#page4">JS Power Boost</a></li>
+      <li><a href="#advanced">Advanced Tips</a></li>
+      <li><a href="#advanced2">More Clean Code</a></li>
+      <li><a href="#e2eFlow">E2E Flow Example</a></li>
+    </ul>
+
+    <!-- Dark Mode Toggle -->
+    <div class="toggles">
+      <button id="modeToggle">🌙</button>
+    </div>
+  </nav>
+</header>
+
 
   <!-- Main content sections stay unchanged -->
 
