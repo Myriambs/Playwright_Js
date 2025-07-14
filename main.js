@@ -10,9 +10,24 @@ document.addEventListener("DOMContentLoaded", () => {
     modeToggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
   });
 
-  // ☰ Hamburger Menu
+  // ☰ Hamburger Menu - Changed "open" to "show" to match CSS
   menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
+    navLinks.classList.toggle("show");
+    // Update ARIA attributes for accessibility
+    const isExpanded = navLinks.classList.contains("show");
+    menuToggle.setAttribute("aria-expanded", isExpanded);
+    menuToggle.setAttribute("aria-label", isExpanded ? "Close Menu" : "Open Menu");
+  });
+
+  // Close menu when clicking on nav links (for single-page navigation)
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 768) { // Only for mobile
+        navLinks.classList.remove("show");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open Menu");
+      }
+    });
   });
 
   // 🌐 Language Toggle
